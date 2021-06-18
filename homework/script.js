@@ -13,5 +13,5 @@ lastMovieRank1 = +prompt('Нф сколько оцените его?', '1-10'),
 lastMovie2 = prompt('Один из последних просмотренных фильмов?', ''),
 lastMovieRank2 = +prompt('Нф сколько оцените его?', '1-10');
 
-personalMovieDB.movies[`${lastMovie1}`] = lastMovieRank1;
-personalMovieDB.movies[`${lastMovie2}`] = lastMovieRank2;
+personalMovieDB.movies[lastMovie1] = lastMovieRank1;
+personalMovieDB.movies[lastMovie2] = lastMovieRank2;
