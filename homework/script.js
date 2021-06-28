@@ -7,11 +7,29 @@ personalMovieDB = {
     actors: {},
     genres: [],
     privat: false
-},
-lastMovie1 = prompt('Один из последних просмотренных фильмов?', ''),
-lastMovieRank1 = +prompt('На сколько оцените его?', '1-10'),
-lastMovie2 = prompt('Один из последних просмотренных фильмов?', ''),
-lastMovieRank2 = +prompt('На сколько оцените его?', '1-10');
-
-personalMovieDB.movies[lastMovie1] = lastMovieRank1;
-personalMovieDB.movies[lastMovie2] = lastMovieRank2;
+};
+let lastMovie = null;
+let lastMovieRank = null;
+for(let i = 0; i < 2; i++) {
+        lastMovie = prompt('Один из последних просмотренных фильмов?', '');
+    //} while (lastMovie !== '' && lastMovie !== null && lastMovie.length > 50);
+    
+        lastMovieRank = +prompt('На сколько оцените его?', '1-10');
+    //} while (lastMovieRank !== '' && lastMovieRank !== null);
+    const lastMovieIsValid = lastMovie != null && lastMovie != '' && lastMovie.length < 50;
+    const lastMovieRankIsValid = lastMovieRank != null && lastMovieRank != '';
+    if(lastMovieIsValid && lastMovieRankIsValid) {
+        personalMovieDB.movies[lastMovie] = lastMovieRank;
+    } else {
+        i--;
+    }
+}
+if (personalMovieDB.count < 10) {
+    alert('Просмотрено довольно мало фильмов');
+} else if (personalMovieDB.count >= 10 && personalMovieDB.count == 30) {
+    alert('Вы классический зритель');
+} else if (personalMovieDB.count >= 30) {
+    alert('Вы киноман');
+} else {
+    alert('Произошла ошибка');
+}
